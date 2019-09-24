@@ -1,0 +1,14 @@
+/home/danni/Code/Quake Repos/qwtfarena/bin/Debug/netcoreapp2.2/qwtfarena.deps.json
+/home/danni/Code/Quake Repos/qwtfarena/bin/Debug/netcoreapp2.2/qwtfarena.runtimeconfig.json
+/home/danni/Code/Quake Repos/qwtfarena/bin/Debug/netcoreapp2.2/qwtfarena.runtimeconfig.dev.json
+/home/danni/Code/Quake Repos/qwtfarena/bin/Debug/netcoreapp2.2/qwtfarena.dll
+/home/danni/Code/Quake Repos/qwtfarena/bin/Debug/netcoreapp2.2/qwtfarena.pdb
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.csprojAssemblyReference.cache
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.csproj.CoreCompileInputs.cache
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.RazorAssemblyInfo.cache
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.RazorAssemblyInfo.cs
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.AssemblyInfoInputs.cache
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.AssemblyInfo.cs
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.RazorTargetAssemblyInfo.cache
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.dll
+/home/danni/Code/Quake Repos/qwtfarena/obj/Debug/netcoreapp2.2/qwtfarena.pdb
