@@ -12161,11 +12161,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/danni/Code/Quake Repos/qwtfarena/qwtfarena.csproj",
+      "projectUniqueName": "/home/danni/Code/Quake Repos/endpoints/qwtfarena/qwtfarena.csproj",
       "projectName": "qwtfarena",
-      "projectPath": "/home/danni/Code/Quake Repos/qwtfarena/qwtfarena.csproj",
+      "projectPath": "/home/danni/Code/Quake Repos/endpoints/qwtfarena/qwtfarena.csproj",
       "packagesPath": "/home/danni/.nuget/packages/",
-      "outputPath": "/home/danni/Code/Quake Repos/qwtfarena/obj/",
+      "outputPath": "/home/danni/Code/Quake Repos/endpoints/qwtfarena/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

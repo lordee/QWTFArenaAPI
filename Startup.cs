@@ -33,6 +33,9 @@ namespace qwtfarena
 
             services.AddScoped<IDiscordVoiceChannelRepository, DiscordVoiceChannelRepository>();
             services.AddScoped<IDiscordVoiceChannelService, DiscordVoiceChannelService>();         
+
+            services.AddScoped<ISSQCStatsRepository, SSQCStatsRepository>();
+            services.AddScoped<ISSQCStatsService, SSQCStatsService>();         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
