@@ -13,7 +13,7 @@ namespace qwtfarena.Persistence.Repositories
         {
         }
 
-        public async Task<int> GameStatusChange(int gameid, float gametime, string eventtype, string initiator)
+        public async Task<int> GameStateChange(int gameid, float gametime, string eventtype, string initiator)
         {
             // insert entry, return data
 
@@ -30,20 +30,25 @@ namespace qwtfarena.Persistence.Repositories
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<int> GameStart(string servername, float gametime, string eventtype, string map, string initiator)
+        public async Task<int> GameStart(GameStateChange gsc)
         {
             SSQCGameInfo gi = new SSQCGameInfo
             {
-                ServerName = servername
-                , Map = map
+                ServerName = gsc.ServerName
+                , Map = gsc.Map
             };
 
             // insert entry, return gameid
             SSQCGameState gs = new SSQCGameState
             {
-                GameTime = gametime,
-                EventType = eventtype,
-                Initiator = initiator
+                GameTime = gsc.GameTime,
+                EventType = gsc.EventType,
+                Initiator = gsc.Initiator
+            };
+
+            SSQCPlayers p = new SSQCPlayers
+            {
+                
             };
 
             gi.GameStates.Add(gs);

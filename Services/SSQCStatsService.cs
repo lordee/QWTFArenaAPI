@@ -15,16 +15,15 @@ namespace qwtfarena.Services
             this._SSQCStatsRepository = SSQCStatsRepository;
         }
 
-        public async Task<int> GameStatusChange(int gameid, string servername, float gametime, string eventtype, string map, string initiator)
+        public async Task<int> GameStateChange(GameStateChange gsc)
         { 
             // submit data
-            switch (eventtype.ToLower())
+            switch (gsc.EventType.ToLower())
             {
                 case "gamestart":
-                    return await _SSQCStatsRepository.GameStart(servername, gametime, eventtype, map, initiator);
+                    return await _SSQCStatsRepository.GameStart(gsc);
                 default:
-                    return await _SSQCStatsRepository.GameStatusChange(gameid, gametime, eventtype, initiator);
-
+                    return await _SSQCStatsRepository.GameStateChange(gsc.GameID, gsc.GameTime, gsc.EventType, gsc.Initiator);
             }
         }
     }

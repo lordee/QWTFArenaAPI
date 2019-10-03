@@ -3,6 +3,7 @@ using qwtfarena.Domain.Models;
 using qwtfarena.Domain.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace qwtfarena.Controllers
 {
@@ -18,30 +19,10 @@ namespace qwtfarena.Controllers
 
         [Route("[action]")]
         [HttpPost]
-        public async Task<int> GameStatusChange(int gameid, string servername, float gametime, string eventtype, string map, string initiator)
+        public async Task<int> GameStateChange([FromBody] GameStateChange gsc)
         {
-            var resp = await _statsService.GameStatusChange(gameid, servername, gametime, eventtype, map, initiator);
+            var resp = await _statsService.GameStateChange(gsc);
             return resp;
-        }
-
-        [Route("[action]")]
-        [HttpPost]
-        public async Task<int> GameStatusTest(int gameid)
-        {
-            return gameid;
-        }
-
-        [HttpGet]
-        public async Task<int> Get()
-        {
-            return 7;
-        }
-
-        [Route("[action]")]
-        [HttpGet]
-        public async Task<int> GetTest()
-        {
-            return 7999;
         }
     }
 }

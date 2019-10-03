@@ -6,8 +6,8 @@ namespace qwtfarena.Domain.Repositories
 {
     public interface ISSQCStatsRepository
     {
-         Task<int> GameStatusChange(int gameid, float gametime, string eventtype, string initiator);
+         Task<int> GameStateChange(int gameid, float gametime, string eventtype, string initiator);
 
-         Task<int> GameStart(string servername, float gametime, string eventtype, string map, string initiator);
+         Task<int> GameStart(GameStateChange gsc);
     }
 }
