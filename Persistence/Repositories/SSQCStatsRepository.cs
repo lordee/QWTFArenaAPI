@@ -46,17 +46,54 @@ namespace qwtfarena.Persistence.Repositories
                 Initiator = gsc.Initiator
             };
 
-            SSQCPlayers p = new SSQCPlayers
+            List<SSQCPlayer> lp = new List<SSQCPlayer>();
+            foreach (GamePlayer gp in gsc.Players)
             {
-                
-            };
+                lp.Add(new SSQCPlayer
+                {
+                    Name = gp.Name,
+                    Team = gp.Team,
+                    Class = gp.Class,
+                    TF_ID = gp.TF_ID,
+                    Player = true
+                });
+            }
 
+            foreach (GamePlayer gp in gsc.Spectators)
+            {
+                lp.Add(new SSQCPlayer
+                {
+                    Name = gp.Name,
+                    Team = gp.Team,
+                    Class = gp.Class,
+                    TF_ID = gp.TF_ID,
+                    Player = false
+                });
+            }
+            
+            gi.Players.Add(lp);
             gi.GameStates.Add(gs);
 
             await _context.AddAsync(gi);
             _context.SaveChanges();
 
             return gi.GameID;
+        }
+
+        public async Task<int> PlayerStateChange(PlayerStateChange psc, string change)
+        {
+            SSQCPlayerState ps = new SSQCPlayerState
+            {
+                GameID = psc.GameID,
+                GameTime = psc.GameTime,
+                EventType = psc.EventType,
+                EventChange = change,
+                TF_ID = psc.Player.TF_ID
+            };
+
+            await _context.AddAsync(ps);
+            
+            return await _context.SaveChangesAsync();
         }
     }
 }

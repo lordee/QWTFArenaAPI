@@ -11,6 +11,6 @@ namespace qwtfarena.Domain.Models
         public IList<SSQCGameState> GameStates {get; set; } = new List<SSQCGameState>();
 
         // TODO track players and state or just history? Specs?
-        public IList<SSQCPlayers> Player {get; set; } = new List<SSQCPlayers>();
+        public IList<SSQCPlayer> Players {get; set; } = new List<SSQCPlayer>();
     }
 }

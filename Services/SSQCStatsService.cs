@@ -20,11 +20,17 @@ namespace qwtfarena.Services
             // submit data
             switch (gsc.EventType.ToLower())
             {
-                case "gamestart":
+                case "st_gamestart":
                     return await _SSQCStatsRepository.GameStart(gsc);
                 default:
                     return await _SSQCStatsRepository.GameStateChange(gsc.GameID, gsc.GameTime, gsc.EventType, gsc.Initiator);
             }
+        }
+
+        public async Task<int> PlayerStateChange(PlayerStateChange psc)
+        { 
+            // submit data
+            return await _SSQCStatsRepository.PlayerStateChange(psc);
         }
     }
 }

@@ -24,5 +24,13 @@ namespace qwtfarena.Controllers
             var resp = await _statsService.GameStateChange(gsc);
             return resp;
         }
+
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<int> PlayerStateChange([FromBody] PlayerStateChange psc)
+        {
+            var resp = await _statsService.PlayerStateChange(psc);
+            return resp;
+        }
     }
 }
