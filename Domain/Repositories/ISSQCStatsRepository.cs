@@ -9,6 +9,6 @@ namespace qwtfarena.Domain.Repositories
         Task<int> GameStateChange(int gameid, float gametime, string eventtype, string initiator);
         Task<int> GameStart(GameStateChange gsc);
         
-        Task<int> PlayerStateChange(PlayerStateChange psc);
+        Task<int> PlayerStateChange(PlayerStateChange psc, string change);
     }
 }

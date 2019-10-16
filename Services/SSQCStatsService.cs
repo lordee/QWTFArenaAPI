@@ -30,7 +30,23 @@ namespace qwtfarena.Services
         public async Task<int> PlayerStateChange(PlayerStateChange psc)
         { 
             // submit data
-            return await _SSQCStatsRepository.PlayerStateChange(psc);
+            string change = "";
+            switch (psc.EventType.ToLower())
+            {
+                case "st_changename":
+                    change = psc.Player.Name;
+                    break;
+                case "st_changeteam":
+                    change = psc.Player.Team.ToString();
+                    break;
+                case "st_changeclass":
+                    change = psc.Player.Class.ToString();
+                    break;
+                default:
+                    change = "1";
+                    break;
+            }
+            return await _SSQCStatsRepository.PlayerStateChange(psc, change);
         }
     }
 }
