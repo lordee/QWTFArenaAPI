@@ -10,5 +10,6 @@ namespace qwtfarena.Domain.Repositories
         Task<int> GameStart(GameStateChange gsc);
         
         Task<int> PlayerStateChange(PlayerStateChange psc, string change);
+        Task<int> Shoot(Shoot s);
     }
 }

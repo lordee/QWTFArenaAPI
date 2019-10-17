@@ -45,11 +45,10 @@ namespace qwtfarena.Persistence.Repositories
                 EventType = gsc.EventType,
                 Initiator = gsc.Initiator
             };
-
-            List<SSQCPlayer> lp = new List<SSQCPlayer>();
+            
             foreach (GamePlayer gp in gsc.Players)
             {
-                lp.Add(new SSQCPlayer
+                gi.Players.Add(new SSQCPlayer
                 {
                     Name = gp.Name,
                     Team = gp.Team,
@@ -61,7 +60,7 @@ namespace qwtfarena.Persistence.Repositories
 
             foreach (GamePlayer gp in gsc.Spectators)
             {
-                lp.Add(new SSQCPlayer
+                gi.Players.Add(new SSQCPlayer
                 {
                     Name = gp.Name,
                     Team = gp.Team,
@@ -71,7 +70,6 @@ namespace qwtfarena.Persistence.Repositories
                 });
             }
             
-            gi.Players.Add(lp);
             gi.GameStates.Add(gs);
 
             await _context.AddAsync(gi);
@@ -100,7 +98,7 @@ namespace qwtfarena.Persistence.Repositories
         {
             SSQCShoot ss = new SSQCShoot
             {
-                GameiD = s.GameID,
+                GameID = s.GameID,
                 GameTime = s.GameTime,
                 TF_ID = s.TF_ID,
                 WeaponType = s.WeaponType,
