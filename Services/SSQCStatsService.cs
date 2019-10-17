@@ -54,5 +54,11 @@ namespace qwtfarena.Services
             // submit data
             return await _SSQCStatsRepository.Shoot(s);
         }
+
+        public async Task<int> Damage(GameDamage d)
+        { 
+            // submit data
+            return await _SSQCStatsRepository.Damage(d);
+        }
     }
 }

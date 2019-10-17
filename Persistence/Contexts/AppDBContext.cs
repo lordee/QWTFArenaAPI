@@ -73,7 +73,11 @@ namespace qwtfarena.Persistence.Contexts
             builder.Entity<SSQCShoot>().Property(p => p.WeaponType).IsRequired().HasMaxLength(500);
             builder.Entity<SSQCShoot>().Property(p => p.DeathType).IsRequired().HasMaxLength(500);
             
-
+            builder.Entity<SSQCDamage>().ToTable("SSQCDamage");
+            builder.Entity<SSQCShoot>().HasKey(p => p.DamageLineID);
+            builder.Entity<SSQCShoot>().Property(p => p.DamageLineID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCShoot>().Property(p => p.GameID).IsRequired();
+            builder.Entity<SSQCShoot>().Property(p => p.GameTime).IsRequired();
 
         }
     }

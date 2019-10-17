@@ -9,5 +9,6 @@ namespace qwtfarena.Domain.Services
         Task<int> GameStateChange(GameStateChange gsc);
         Task<int> PlayerStateChange(PlayerStateChange psc);
         Task<int> Shoot(Shoot s);
+        Task<int> Damage(GameDamage s);
     }
 }

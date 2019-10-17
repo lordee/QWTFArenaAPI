@@ -41,7 +41,14 @@ namespace qwtfarena.Controllers
             return resp;
         }
 
-        // Damage
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<int> Damage([FromBody] GameDamage d)
+        {
+            var resp = await _statsService.Damage(d);
+            return resp;
+        }
+
         // PlayerAction
         // ScoreUpdate
     }

@@ -110,5 +110,22 @@ namespace qwtfarena.Persistence.Repositories
             
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<int> Damage(GameDamage d)
+        {
+            SSQCDamage dd = new SSQCDamage
+            {
+                GameID = d.GameID,
+                GameTime = d.GameTime,
+                TF_ID = s.TF_ID,
+                WeaponType = s.WeaponType,
+                Shot_ID = s.Shot_ID,
+                DeathType = s.DeathType
+            };
+
+            await _context.AddAsync(dd);
+            
+            return await _context.SaveChangesAsync();
+        }
     }
 }
