@@ -10,6 +10,4 @@ public class GameStateChange
     public string Initiator;
     public List<GamePlayer> Players = new List<GamePlayer>();
     public List<GamePlayer> Spectators = new List<GamePlayer>();
-    
-
 }

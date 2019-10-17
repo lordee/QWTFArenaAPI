@@ -48,5 +48,11 @@ namespace qwtfarena.Services
             }
             return await _SSQCStatsRepository.PlayerStateChange(psc, change);
         }
+
+        public async Task<int> Shoot(Shoot s)
+        { 
+            // submit data
+            return await _SSQCStatsRepository.Shoot(s);
+        }
     }
 }

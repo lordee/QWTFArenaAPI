@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace qwtfarena.Domain.Models
 {
     public class SSQCPlayer
@@ -7,7 +5,7 @@ namespace qwtfarena.Domain.Models
         public int GameID { get; set; }
         public SSQCGameInfo SSQCGameInfo { get; set; }
         
-        public int PlayerStateID { get; set; }
+        public int PlayerID { get; set; }
         public string Name { get; set; }
         public int Team { get; set; }
         public int Class { get; set; }
