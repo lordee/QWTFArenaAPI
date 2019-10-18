@@ -45,14 +45,15 @@ namespace qwtfarena.Persistence.Contexts
             builder.Entity<SSQCGameState>().Property(p => p.EventType).IsRequired().HasMaxLength(500);
             builder.Entity<SSQCGameState>().Property(p => p.Initiator).IsRequired().HasMaxLength(500);
 
-            builder.Entity<SSQCPlayer>().ToTable("SSQCPlayer");
-            builder.Entity<SSQCPlayer>().HasKey(p => p.PlayerID);
-            builder.Entity<SSQCPlayer>().Property(p => p.PlayerID).UseNpgsqlIdentityByDefaultColumn();
-            builder.Entity<SSQCPlayer>().Property(p => p.Name).IsRequired().HasMaxLength(500);
-            builder.Entity<SSQCPlayer>().Property(p => p.Team).IsRequired();
-            builder.Entity<SSQCPlayer>().Property(p => p.Class).IsRequired();
-            builder.Entity<SSQCPlayer>().Property(p => p.TF_ID).IsRequired();
-            builder.Entity<SSQCPlayer>().Property(p => p.Player).IsRequired();
+            // this is just initial info with gameinfo/gamestate
+            builder.Entity<SSQCGamePlayer>().ToTable("SSQCGamePlayer");
+            builder.Entity<SSQCGamePlayer>().HasKey(p => p.PlayerID);
+            builder.Entity<SSQCGamePlayer>().Property(p => p.PlayerID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCGamePlayer>().Property(p => p.Name).IsRequired().HasMaxLength(500);
+            builder.Entity<SSQCGamePlayer>().Property(p => p.Team).IsRequired();
+            builder.Entity<SSQCGamePlayer>().Property(p => p.Class).IsRequired();
+            builder.Entity<SSQCGamePlayer>().Property(p => p.TF_ID).IsRequired();
+            builder.Entity<SSQCGamePlayer>().Property(p => p.Player).IsRequired();
             
             builder.Entity<SSQCPlayerState>().ToTable("SSQCPlayerState");
             builder.Entity<SSQCPlayerState>().HasKey(p => p.PlayerStateID);
@@ -74,11 +75,28 @@ namespace qwtfarena.Persistence.Contexts
             builder.Entity<SSQCShoot>().Property(p => p.DeathType).IsRequired().HasMaxLength(500);
             
             builder.Entity<SSQCDamage>().ToTable("SSQCDamage");
-            builder.Entity<SSQCShoot>().HasKey(p => p.DamageLineID);
-            builder.Entity<SSQCShoot>().Property(p => p.DamageLineID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCDamage>().HasKey(p => p.DamageLineID);
+            builder.Entity<SSQCDamage>().Property(p => p.DamageLineID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCDamage>().Property(p => p.GameID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.GameTime).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.Attacker_TF_ID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.Target_TF_ID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.WeaponType).IsRequired().HasMaxLength(500);
+            builder.Entity<SSQCDamage>().Property(p => p.Damage).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.Shot_ID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.GamVHeighteID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.Killed).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.DeathType).IsRequired().HasMaxLength(500);
+            builder.Entity<SSQCDamage>().Property(p => p.HadFlag).IsRequired();
+
+            builder.Entity<SSQCPlayerAction>().ToTable("SSQCPlayerAction");
+            builder.Entity<SSQCShoot>().HasKey(p => p.PlayerActionLineID);
+            builder.Entity<SSQCShoot>().Property(p => p.PlayerActionLineID).UseNpgsqlIdentityByDefaultColumn();
             builder.Entity<SSQCShoot>().Property(p => p.GameID).IsRequired();
             builder.Entity<SSQCShoot>().Property(p => p.GameTime).IsRequired();
-
+            builder.Entity<SSQCShoot>().Property(p => p.Action).IsRequired().HasMaxLength(500);
+            builder.Entity<SSQCShoot>().Property(p => p.Attacker_TF_ID).IsRequired();
+            builder.Entity<SSQCShoot>().Property(p => p.Target_TF_ID).IsRequired();
         }
     }
 }

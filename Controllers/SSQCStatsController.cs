@@ -50,6 +50,14 @@ namespace qwtfarena.Controllers
         }
 
         // PlayerAction
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<int> PlayerAction([FromBody] PlayerAction pa)
+        {
+            var resp = await _statsService.PlayerAction(pa);
+            return resp;
+        }
+
         // ScoreUpdate
     }
 }

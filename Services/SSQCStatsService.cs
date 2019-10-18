@@ -60,5 +60,11 @@ namespace qwtfarena.Services
             // submit data
             return await _SSQCStatsRepository.Damage(d);
         }
+
+        public async Task<int> PlayerAction(PlayerAction pa)
+        { 
+            // TODO update players table for new players connecting etc
+            return await _SSQCStatsRepository.PlayerAction(pa);
+        }
     }
 }

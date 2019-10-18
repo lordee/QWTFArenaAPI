@@ -5,8 +5,8 @@ namespace qwtfarena.Domain.Models
         public int DamageLineID;
         public int GameID;
         public float GameTime;
-        public SSQCPlayer Attacker;
-        public SSQCPlayer Target;
+        public int Attacker_TF_ID;
+        public int Target_TF_ID;
         public string WeaponType;
         public float Damage;
         public int Shot_ID;

@@ -48,7 +48,7 @@ namespace qwtfarena.Persistence.Repositories
             
             foreach (GamePlayer gp in gsc.Players)
             {
-                gi.Players.Add(new SSQCPlayer
+                gi.Players.Add(new SSQCGamePlayer
                 {
                     Name = gp.Name,
                     Team = gp.Team,
@@ -60,7 +60,7 @@ namespace qwtfarena.Persistence.Repositories
 
             foreach (GamePlayer gp in gsc.Spectators)
             {
-                gi.Players.Add(new SSQCPlayer
+                gi.Players.Add(new SSQCGamePlayer
                 {
                     Name = gp.Name,
                     Team = gp.Team,
@@ -117,13 +117,29 @@ namespace qwtfarena.Persistence.Repositories
             {
                 GameID = d.GameID,
                 GameTime = d.GameTime,
-                TF_ID = s.TF_ID,
-                WeaponType = s.WeaponType,
-                Shot_ID = s.Shot_ID,
-                DeathType = s.DeathType
+                TF_ID = d.TF_ID,
+                WeaponType = d.WeaponType,
+                Shot_ID = d.Shot_ID,
+                DeathType = d.DeathType
             };
 
             await _context.AddAsync(dd);
+            
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> PlayerAction(PlayerAction pa)
+        {
+            SSQCPlayerAction spa = new SSQCPlayerAction
+            {
+                GameID = d.GameID,
+                GameTime = d.GameTime,
+                Action = pa.Action,
+                Attacker_TF_ID = pa.Attacker.TF_ID,
+                Target_TF_ID = pa.Target.TF_ID
+            };
+
+            await _context.AddAsync(spa);
             
             return await _context.SaveChangesAsync();
         }

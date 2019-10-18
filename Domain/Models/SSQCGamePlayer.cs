@@ -1,6 +1,6 @@
 namespace qwtfarena.Domain.Models
 {
-    public class SSQCPlayer
+    public class SSQCGamePlayer
     {
         public int GameID { get; set; }
         public SSQCGameInfo SSQCGameInfo { get; set; }
