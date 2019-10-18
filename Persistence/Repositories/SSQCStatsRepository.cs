@@ -143,5 +143,21 @@ namespace qwtfarena.Persistence.Repositories
             
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<int> ScoreUpdate(ScoreUpdate su)
+        {
+            SSQCScoreUpdate spa = new SSQCScoreUpdate
+            {
+                GameID = d.GameID,
+                GameTime = d.GameTime,
+                Action = pa.Action,
+                Attacker_TF_ID = pa.Attacker.TF_ID,
+                Target_TF_ID = pa.Target.TF_ID
+            };
+
+            await _context.AddAsync(spa);
+            
+            return await _context.SaveChangesAsync();
+        }
     }
 }

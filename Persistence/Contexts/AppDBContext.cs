@@ -90,13 +90,23 @@ namespace qwtfarena.Persistence.Contexts
             builder.Entity<SSQCDamage>().Property(p => p.HadFlag).IsRequired();
 
             builder.Entity<SSQCPlayerAction>().ToTable("SSQCPlayerAction");
-            builder.Entity<SSQCShoot>().HasKey(p => p.PlayerActionLineID);
-            builder.Entity<SSQCShoot>().Property(p => p.PlayerActionLineID).UseNpgsqlIdentityByDefaultColumn();
-            builder.Entity<SSQCShoot>().Property(p => p.GameID).IsRequired();
-            builder.Entity<SSQCShoot>().Property(p => p.GameTime).IsRequired();
-            builder.Entity<SSQCShoot>().Property(p => p.Action).IsRequired().HasMaxLength(500);
-            builder.Entity<SSQCShoot>().Property(p => p.Attacker_TF_ID).IsRequired();
-            builder.Entity<SSQCShoot>().Property(p => p.Target_TF_ID).IsRequired();
+            builder.Entity<SSQCPlayerAction>().HasKey(p => p.PlayerActionLineID);
+            builder.Entity<SSQCPlayerAction>().Property(p => p.PlayerActionLineID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCPlayerAction>().Property(p => p.GameID).IsRequired();
+            builder.Entity<SSQCPlayerAction>().Property(p => p.GameTime).IsRequired();
+            builder.Entity<SSQCPlayerAction>().Property(p => p.Action).IsRequired().HasMaxLength(500);
+            builder.Entity<SSQCPlayerAction>().Property(p => p.Attacker_TF_ID).IsRequired();
+            builder.Entity<SSQCPlayerAction>().Property(p => p.Target_TF_ID).IsRequired();
+
+            builder.Entity<SSQCScoreUpdate>().ToTable("SSQCScoreUpdate");
+            builder.Entity<SSQCScoreUpdate>().HasKey(p => p.ScoreUpdateLineID);
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.ScoreUpdateLineID).UseNpgsqlIdentityByDefaultColumn();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.GameID).IsRequired();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.GameTime).IsRequired();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.TeamOne).IsRequired();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.TeamTwo).IsRequired();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.TeamThree).IsRequired();
+            builder.Entity<SSQCScoreUpdate>().Property(p => p.TeamFour).IsRequired();
         }
     }
 }

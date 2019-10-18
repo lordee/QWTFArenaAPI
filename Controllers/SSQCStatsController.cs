@@ -49,7 +49,6 @@ namespace qwtfarena.Controllers
             return resp;
         }
 
-        // PlayerAction
         [Route("[action]")]
         [HttpPost]
         public async Task<int> PlayerAction([FromBody] PlayerAction pa)
@@ -58,6 +57,12 @@ namespace qwtfarena.Controllers
             return resp;
         }
 
-        // ScoreUpdate
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<int> ScoreUpdate([FromBody] ScoreUpdate su)
+        {
+            var resp = await _statsService.ScoreUpdate(su);
+            return resp;
+        }
     }
 }
