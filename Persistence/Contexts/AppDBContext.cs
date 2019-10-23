@@ -84,7 +84,7 @@ namespace qwtfarena.Persistence.Contexts
             builder.Entity<SSQCDamage>().Property(p => p.WeaponType).IsRequired().HasMaxLength(500);
             builder.Entity<SSQCDamage>().Property(p => p.Damage).IsRequired();
             builder.Entity<SSQCDamage>().Property(p => p.Shot_ID).IsRequired();
-            builder.Entity<SSQCDamage>().Property(p => p.GamVHeighteID).IsRequired();
+            builder.Entity<SSQCDamage>().Property(p => p.VHeight).IsRequired();
             builder.Entity<SSQCDamage>().Property(p => p.Killed).IsRequired();
             builder.Entity<SSQCDamage>().Property(p => p.DeathType).IsRequired().HasMaxLength(500);
             builder.Entity<SSQCDamage>().Property(p => p.HadFlag).IsRequired();

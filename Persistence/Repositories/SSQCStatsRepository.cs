@@ -117,10 +117,14 @@ namespace qwtfarena.Persistence.Repositories
             {
                 GameID = d.GameID,
                 GameTime = d.GameTime,
-                TF_ID = d.TF_ID,
+                Attacker_TF_ID = d.Attacker.TF_ID,
+                Target_TF_ID = d.Target.TF_ID,
                 WeaponType = d.WeaponType,
+                Damage = d.Damage,
                 Shot_ID = d.Shot_ID,
-                DeathType = d.DeathType
+                VHeight = d.VHeight,
+                DeathType = d.DeathType,
+                HadFlag = d.HadFlag
             };
 
             await _context.AddAsync(dd);
@@ -132,8 +136,8 @@ namespace qwtfarena.Persistence.Repositories
         {
             SSQCPlayerAction spa = new SSQCPlayerAction
             {
-                GameID = d.GameID,
-                GameTime = d.GameTime,
+                GameID = pa.GameID,
+                GameTime = pa.GameTime,
                 Action = pa.Action,
                 Attacker_TF_ID = pa.Attacker.TF_ID,
                 Target_TF_ID = pa.Target.TF_ID
@@ -148,11 +152,12 @@ namespace qwtfarena.Persistence.Repositories
         {
             SSQCScoreUpdate spa = new SSQCScoreUpdate
             {
-                GameID = d.GameID,
-                GameTime = d.GameTime,
-                Action = pa.Action,
-                Attacker_TF_ID = pa.Attacker.TF_ID,
-                Target_TF_ID = pa.Target.TF_ID
+                GameID = su.GameID,
+                GameTime = su.GameTime,
+                TeamOne = su.TeamOne,
+                TeamTwo = su.TeamTwo,
+                TeamThree = su.TeamThree,
+                TeamFour = su.TeamFour
             };
 
             await _context.AddAsync(spa);
