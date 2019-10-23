@@ -29,7 +29,7 @@ namespace qwtfarena.Services
 
         public async Task<int> PlayerStateChange(PlayerStateChange psc)
         { 
-            // submit data
+            // TODO update players table for new players connecting etc
             string change = "";
             switch (psc.EventType.ToLower())
             {
@@ -46,6 +46,8 @@ namespace qwtfarena.Services
                     change = "1";
                     break;
             }
+
+            // submit to change tracking table
             return await _SSQCStatsRepository.PlayerStateChange(psc, change);
         }
 
@@ -63,7 +65,6 @@ namespace qwtfarena.Services
 
         public async Task<int> PlayerAction(PlayerAction pa)
         { 
-            // TODO update players table for new players connecting etc
             return await _SSQCStatsRepository.PlayerAction(pa);
         }
 
