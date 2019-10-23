@@ -80,6 +80,8 @@ namespace qwtfarena.Persistence.Repositories
 
         public async Task<int> PlayerStateChange(PlayerStateChange psc, string change)
         {
+
+            // TODO - save players in player table
             SSQCPlayerState ps = new SSQCPlayerState
             {
                 GameID = psc.GameID,
